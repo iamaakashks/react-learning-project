@@ -12,7 +12,7 @@ export default function Cards(){
                 <h1 className="text-sm tracking-tight font-medium">Mens Casual Premium Slim Fit T-Shirts</h1>
                 <h4 className="flex content-end text-xs opacity-60 font-semibold">Men's Clothing</h4>
                 </div>
-                <div className="flex gap-2 text-sm"><h3 className="font-semibold">$ 399.99</h3><span className="select-none line-through opacity-40 italic">499.99</span></div>
+                <div className="flex gap-2 text-sm"><h3 className="font-semibold">$ 89.99</h3><span className="select-none line-through opacity-40 italic">99.99</span></div>
             </div>
         </Link>
     )
