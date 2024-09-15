@@ -25,7 +25,7 @@ export default function Details(){
                         <h4 className="tracking-tight text-sm">(259)</h4>
                     </div>
                 </div>
-                <p className="leading-tight my-4 border-l-[1px] border-gray-300 p-1 tracking-tight text-xs text-justify">Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.</p>
+                <p className="leading-tight my-4 border-l-[1px] border-gray-300 py-1 tracking-tight text-xs text-justify">Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.</p>
                 <div className="flex gap-4">
                     <button type='button' className="px-4 py-1.5 rounded-md bg-green-600 text-sm text-white">Add to Cart</button>
                     <button type='button' className="px-4 py-1.5 rounded-md bg-red-600 text-sm text-white">Remove</button>

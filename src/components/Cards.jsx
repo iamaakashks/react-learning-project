@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Cards(){
     return (
-        <Link to="/item-details/" className="w-64 h-72 bg-white rounded-lg">
+        <Link to="/item-details/" className="w-64 h-72 bg-white rounded-lg border-[1px] border-gray-400">
             <div className="h-[70%] w-[100%] rounded-t-lg border-b-[1px]">
                 <img className='select-none hover:scale-125 hover:transition-transform hover:duration-300 h-full m-auto p-8' src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
             </div>
