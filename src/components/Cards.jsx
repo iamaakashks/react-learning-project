@@ -5,7 +5,6 @@ import Loading from './Loading.jsx';
 
 export default function Cards(){
     const [products] =  useContext(ProductContext);
-    console.log(products);
     return (
         products? <>
             {
