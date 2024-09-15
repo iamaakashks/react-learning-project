@@ -7,7 +7,7 @@ export default function App(){
     <div className="h-screen w-full flex">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/item-details/" element={<Details />} />
+        <Route path="/item-details/:id" element={<Details />} />
       </Routes>
     </div>
   )

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Navbar(){
     return (
-        <nav className="flex flex-col items-center pt-2 w-[18%] h-[100%] bg-zinc-900 text-zinc-100">
+        <nav className="flex flex-col items-center pt-2 w-[18%] h-[100%] bg-zinc-900 fixed text-zinc-100">
             <a href="/create"><button type="button" className="px-3.5 py-2 bg-green-200 rounded-lg font-bold text-zinc-700 text-sm">Add New Product</button></a>
             <hr className="w-[80%] border-zinc-600 my-2"/>
             <h1 className="font-bold w-[80%] mb-2">Category Filter</h1>

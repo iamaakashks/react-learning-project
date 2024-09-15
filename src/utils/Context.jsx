@@ -9,14 +9,14 @@ export default function Context(props){
     const getProducts = async()=>{
         try{
             const {data} = await axios("/products/");
-            console.log(data);
+            setProducts(data);
         }catch(error){
             console.log(error);
         }
-    }
+    };
     useEffect(()=>{
         getProducts();
-    }, [])
+    }, []);
     return (
         <ProductContext.Provider value={[products, setProducts]}>
             {props.children}
