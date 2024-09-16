@@ -23,7 +23,7 @@ export default function Home(){
         }
     }
     useEffect(()=>{
-        if(!filteredProducts) setfilteredProducts(products);
+        if(!filteredProducts || !categories) setfilteredProducts(products);
         if(categories) getProductCategory();
     }, [categories, products])
     return (

@@ -30,7 +30,7 @@ export default function Details(){
                     <h1 className="font-semibold text-lg leading-5">{singleProduct.title}</h1>
                     <h3 className="font-semibold opacity-30 text-sm">{singleProduct.category}</h3>
                     <div className="w-full mt-4 flex items-center justify-between">
-                        <div className="flex gap-2"><h1 className="font-bold">{singleProduct.price}</h1><span className="line-through italic opacity-50">{singleProduct.price + 22}</span></div>
+                        <div className="flex gap-2"><h1 className="font-bold">${singleProduct.price}</h1><span className="line-through italic opacity-50">${singleProduct.price + 22}</span></div>
                         <div className="flex items-center gap-2">
                             <div className="flex">
                                 <TiStarFullOutline />
