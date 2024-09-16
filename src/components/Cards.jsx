@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { ProductContext } from '../utils/Context';
 import Loading from './Loading.jsx';
 
-export default function Cards(){
+export default function Cards({filterProducts}){
     const [products] =  useContext(ProductContext);
     return (
         products? <>
             {
-                products.map((product, index)=>{
+                filterProducts && filterProducts.map((product, index)=>{
                     return (
                         <Link to={`/item-details/${product.id}`} key={index} className="w-64 h-72 bg-white rounded-lg border-[1px] border-gray-400">
                             <div className="h-[70%] w-[100%] rounded-t-lg border-b-[1px]">

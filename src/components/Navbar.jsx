@@ -3,10 +3,14 @@ import { ProductContext } from "../utils/Context";
 import { Link } from "react-router-dom";
 
 export default function Navbar(){
+
+    const colorPoint = ()=>{
+        return `rgba(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, 0.9)`;
+    }
+
     const [products] = useContext(ProductContext);
     let distinctCategory = products && products.reduce((acc, cv)=>[...acc, cv.category], [])
     distinctCategory = [...new Set(distinctCategory)];
-    console.log(distinctCategory)
     return (
         <nav className="flex flex-col items-center pt-2 w-[18%] h-[100%] bg-zinc-900 fixed text-zinc-100">
             <a href="/create"><button type="button" className="px-3.5 py-2 bg-green-200 rounded-lg font-bold text-zinc-700 text-sm">Add New Product</button></a>
@@ -16,7 +20,7 @@ export default function Navbar(){
 
                 {
                     distinctCategory.map((category, index)=>{
-                        return <Link to={`/?category=${category}`} key={index} className="p-1.5 hover:underline"><span className="inline-block mr-2 w-[8px] h-[8px] bg-blue-400 rounded-full"></span>{category}</Link>
+                        return <Link to={`/?category=${category}`} key={index} className="p-1.5 hover:underline"><span style={{backgroundColor: colorPoint()}} className={`inline-block mr-2 w-[8px] h-[8px] rounded-full`}></span>{category}</Link>
                     })
                 }
 

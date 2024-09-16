@@ -22,8 +22,8 @@ export default function Details(){
     return (
         singleProduct ? <>
             <div className="w-[50%] h-[50%] border-[1px] border-zinc-400 m-auto rounded-lg flex items-center">
-                <div className="w-[40%] rounded-l-lg h-full">
-                    <img className='h-full m-auto p-8 hover:scale-110 hover:transition-transform hover:duration-500' src={singleProduct.image} alt="" />
+                <div className="flex items-center justify-center w-[40%] rounded-l-lg h-full">
+                    <img className='h-[40%] object-cover p-2 hover:scale-110 hover:transition-transform hover:duration-500' src={singleProduct.image} alt="" />
                 </div>
                 <div className="bg-neutral-400 h-[80%] w-[1px]"></div>
                 <div className="h-full w-[60%] rounded-r-lg p-4 tracking-wider flex flex-col justify-center">
@@ -42,7 +42,7 @@ export default function Details(){
                             <h4 className="tracking-tight text-sm">({singleProduct.rating.count})</h4>
                         </div>
                     </div>
-                    <p className="leading-tight my-4 border-l-[5px] border-gray-300 pl-1 py-1 tracking-tight text-xs text-justify">{singleProduct.description}</p>
+                    <p className="leading-tight my-4 border-l-[1px] border-gray-300 pl-1 py-1 tracking-tight text-xs text-justify">{singleProduct.description}</p>
                     <div className="flex gap-4">
                         <button type='button' className="px-4 py-1.5 rounded-md bg-green-600 text-sm text-white">Add to Cart</button>
                         <button type='button' className="px-4 py-1.5 rounded-md bg-red-600 text-sm text-white">Remove</button>
