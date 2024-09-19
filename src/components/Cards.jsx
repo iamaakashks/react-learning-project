@@ -21,7 +21,7 @@ export default function Cards({filterProducts}){
                                     }</h1>
                                 <h4 className="flex content-end text-xs opacity-60 font-semibold">{product.category}</h4>
                                 </div>
-                                <div className="flex gap-2 text-sm"><h3 className="font-semibold">$ {product.price}</h3><span className="select-none line-through opacity-40 italic">{(22 + product.price).toFixed(2)}</span></div>
+                                <div className="flex gap-2 text-sm"><h3 className="font-semibold">$ {product.price}</h3><span className="select-none line-through opacity-40 italic">{products.price}</span></div>
                             </div>
                         </Link>
                     )

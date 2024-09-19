@@ -3,21 +3,26 @@ import { TiStarFullOutline, TiStarHalfOutline } from "react-icons/ti";
 import axios from '../utils/axios';
 import { useParams } from 'react-router-dom';
 import Loading from './Loading';
+import { ProductContext } from '../utils/Context';
 
 
 export default function Details(){
+    const [products, setproduts] = useContext(ProductContext);
     const [singleProduct, setSingleProduct] = useState(null);
     const {id} = useParams();
-    const getSingleProduct = async()=>{
-        try{
-            const {data} = await axios.get(`/products/${id}`);
-            setSingleProduct(data);
-        }catch(error){
-            console.log(error);
-        }
-    }
+    // const getSingleProduct = async()=>{
+    //     try{
+    //         const {data} = await axios.get(`/products/${id}`);
+    //         setSingleProduct(data);
+    //     }catch(error){
+    //         console.log(error);
+    //     }
+    // }
     useEffect(()=>{
-        getSingleProduct();
+        if(!singleProduct){
+            setSingleProduct(products.filter((p) => p.id == id)[0]);
+        }
+        // getSingleProduct();
     }, [])
     return (
         singleProduct ? <>
