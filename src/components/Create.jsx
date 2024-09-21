@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react"
 import { ProductContext } from "../utils/Context";
 import {nanoid} from "nanoid";
+import { useNavigate } from "react-router-dom";
 
 export default function Create(){
+    const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
@@ -25,7 +27,8 @@ export default function Create(){
         };
         
         setProducts([...products, product]);
-        console.log(products);
+        localStorage.setItem("products", JSON.stringify([...products, product]));
+        navigate("/");
     }
     return (
         <div className="w-full h-screen flex items-center justify-center">
