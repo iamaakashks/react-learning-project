@@ -9,8 +9,7 @@ import axios from '../utils/axios.jsx';
 export default function Home(){
     const [products] =  useContext(ProductContext);
     const {search} = useLocation();
-    const categories = search.split("=")[1];
-    console.log(decodeURIComponent(categories));
+    const categories = decodeURIComponent(search.split("=")[1]);
     const [filteredProducts, setfilteredProducts] = useState(null);
 
     const getProductCategory = async () =>{
@@ -24,7 +23,10 @@ export default function Home(){
     }
     useEffect(()=>{
         if(!filteredProducts || !categories) setfilteredProducts(products);
-        if(categories) getProductCategory();
+        if(categories) {
+            // getProductCategory()
+            setfilteredProducts(products.filter(p => (p.category) === categories));
+        };
     }, [categories, products])
     return (
         products ? <>
