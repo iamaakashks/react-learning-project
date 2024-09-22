@@ -57,7 +57,7 @@ export default function Details(){
                                 <TiStarFullOutline />
                                 <TiStarHalfOutline />
                             </div>
-                            <h4 className="tracking-tight text-sm">({singleProduct.rating})</h4>
+                            <h4 className="tracking-tight text-sm">({singleProduct.rating.count})</h4>
                         </div>
                     </div>
                     <p className="leading-tight my-4 border-l-[1px] border-gray-300 pl-1 py-1 tracking-tight text-xs text-justify">{singleProduct.description}</p>
