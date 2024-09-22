@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TiStarFullOutline, TiStarHalfOutline } from "react-icons/ti";
 import axios from '../utils/axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from './Loading';
 import { ProductContext } from '../utils/Context';
 
 
 export default function Details(){
-    const [products, setproduts] = useContext(ProductContext);
+    const navigate = useNavigate();
+    const [products, setProducts] = useContext(ProductContext);
     const [singleProduct, setSingleProduct] = useState(null);
-    const {id} = useParams();
+    const { id } = useParams();
     // const getSingleProduct = async()=>{
     //     try{
     //         const {data} = await axios.get(`/products/${id}`);
@@ -19,11 +20,23 @@ export default function Details(){
     //     }
     // }
     useEffect(()=>{
-        if(!singleProduct){
-            setSingleProduct(products.filter((p) => p.id == id)[0]);
-        }
         // getSingleProduct();
-    }, [])
+        if(!singleProduct){
+            setSingleProduct(products.filter((p) => p.id === id)[0]);
+        }
+    }, [id, products, singleProduct])
+    
+    const productDeleteHandler = (id) => {
+        const filteredProducts = products.filter(p => p.id !== id);
+        setProducts(filteredProducts);
+        localStorage.setItem("products", JSON.stringify(filteredProducts));
+        console.log("product deleted");
+        navigate("/");
+    }
+    const [buttonText, setButtonText] = useState("Add to Cart");
+    const cartHandler = ()=>{
+        setButtonText("Go to Cart");
+    }
     return (
         singleProduct ? <>
             <div className="w-[50%] h-[50%] border-[1px] border-zinc-400 m-auto rounded-lg flex items-center">
@@ -44,13 +57,13 @@ export default function Details(){
                                 <TiStarFullOutline />
                                 <TiStarHalfOutline />
                             </div>
-                            <h4 className="tracking-tight text-sm">({singleProduct.rating.count})</h4>
+                            <h4 className="tracking-tight text-sm">({singleProduct.rating})</h4>
                         </div>
                     </div>
                     <p className="leading-tight my-4 border-l-[1px] border-gray-300 pl-1 py-1 tracking-tight text-xs text-justify">{singleProduct.description}</p>
                     <div className="flex gap-4">
-                        <button type='button' className="px-4 py-1.5 rounded-md bg-green-600 text-sm text-white">Add to Cart</button>
-                        <button type='button' className="px-4 py-1.5 rounded-md bg-red-600 text-sm text-white">Remove</button>
+                        <button onClick={cartHandler} type='button' className="hello px-4 py-1.5 rounded-md bg-green-600 text-sm text-white">{buttonText}</button>
+                        <button onClick={() => productDeleteHandler(singleProduct.id)} type='button' className="px-4 py-1.5 rounded-md bg-red-600 text-sm text-white">Remove</button>
                     </div>
                 </div>
             </div>

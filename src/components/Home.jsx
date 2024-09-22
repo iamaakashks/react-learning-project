@@ -12,21 +12,24 @@ export default function Home(){
     const categories = decodeURIComponent(search.split("=")[1]);
     const [filteredProducts, setfilteredProducts] = useState(null);
 
-    const getProductCategory = async () =>{
-        try{
-            const {data} = await axios.get(`/products/category/${categories}`);
-            setfilteredProducts(data);
-        }
-        catch(err){
-            console.log(err);
-        }
-    }
+    // const getProductCategory = async () =>{
+    //     try{
+    //         const {data} = await axios.get(`/products/category/${categories}`);
+    //         setfilteredProducts(data);
+    //     }
+    //     catch(err){
+    //         console.log(err);
+    //     }
+    // }
     useEffect(()=>{
-        if(!filteredProducts || !categories) setfilteredProducts(products);
-        if(categories) {
+        
+        setfilteredProducts(products);
+        if(categories !== "undefined") {
             // getProductCategory()
-            setfilteredProducts(products.filter(p => (p.category) === categories));
-        };
+            setfilteredProducts(products.filter((p) => {
+                return p.category === categories
+            }))
+        }
     }, [categories, products])
     return (
         products ? <>
